@@ -1,21 +1,37 @@
-# SolanaValidatorGuide
-A curated list of resources and simplified content to help everyone come onboard as a Solana Validator. Unlike many other blockchain networks, Solana needs a deeper understanding of systems and software.  Its best that you have some background in Unix Sytems Administration, writing unix scripts and ability to use guidance below on a unix server.
+# SolanaValidator-OnePage Guide 
+Solana documentation and its links can sometimes be confusing and leading you down a confusing path.  So we provided this simplified 1 page guide to help people that need help. 
 
-### Guide is to run a validator on Ubuntu 20.04.  Other variants of unix may need command translation.
+- Unlike many other blockchain networks, Solana needs a deeper understanding of systems and software.  
+- Its best that you have some background in Unix Sytems Administration to be successful in this edeavour
+- Share edits / corrections / suggestions in Github or with authors on Discord ( DfinityUB#1211 or StakeMixAB#9519 )
 
-## Introduction to Solana
+### Guide is to run a Solana validator on Ubuntu 20.04.  Other variants of unix may need command translation.
+
 ## Recommended Hardware & Hosting Specs
+To get started on the testnet, you will need the following
+- A hosted or cloud server ( Home hosted servers tend to lag in catchup due to network latency )
+- with 16+ CPU cores 
+- 64 to 128 GB Ram ( Recommend minimum of 256 GB for Mainnet )
+- High IO SSD Disks / NVME Disks ( NVME may not sustain for too long due to the intensity of writes )
+
+## Recommended Disk Layout
+
+| mount  | size | DiskRaid  | Comments  |
+|---|---|---|---|
+| /  | 128GB  | 1  | OS Disk, Better to keep it mirrored  |
+| /log | 32GB  | 0  | Logs Disk, avoid mirroring to reduce io waits  |
+| /ledger  |  640GB  | 0  | Ledger Disk, Do not mirror unless you can handle io waits  |
+| /snapshots | 128GB | 1 | Snapshots Disk - Needed for rebuilding ledger in case of a loss 
+
 ## Lets harden your server first
 The first thing to do when you receive your virtual machine or server is to harden the server atleast to cover the basics. While server hardening is a much broader topic, we recommend atleast the following steps to ensure that your server is protected from unnecessary intrusions.
 ###### Upgrade all your software and ensure you have UFW ( firewall ) installed
-- Operating System : Ubuntu
 ```
 $ sudo apt update
 $ sudo apt upgrade
 $ sudo apt install ufw
 ```
 ###### Enable your firewall
-- Operating System : Any
 - UFW is a universal firewall that is available for free. This can help you protect your services from being attacked by random people on the internet.  While the topic of a firewall is very broad, the following commands should help lock down your server to just the ssh port and avoid any additional vulnerabilities from being exploited
 ```
 $ sudo apt install ufw
@@ -25,9 +41,9 @@ $ sudo ufw enable
 $ sudo ufw status
 ```
 ## Solana Setup &  Installation
+
 ### Create a dedicated User
-- Operating System : Any
-- UFW is a universal firewall that is available for free. This can help you protect your services from being attacked by random people on the internet.  While the topic of a firewall is very broad, the following commands should help lock down your server to just the ssh port and avoid any additional vulnerabilities from being exploited
+**DO NOT install solana software as Root. **
 ```
 $ sudo adduser solana ( follow the prompts )
 $ sudo usermod -aG sudo solana ( adds the user to sudo group )
@@ -61,8 +77,8 @@ $ solana-keygen new -o ~/.config/solana/stake.json  ( this is your staking key )
 ### Configure your preferred cluster
 Solana has 3 clusters - devnet, testnet and mainnet. We recommend that you use the testnet cluster for your first setup<br/>
 ``` 
-$ export SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea" 
 $ solana config set --url https://testnet.solana.com 
+$ export SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea" 
 $ solana transaction-count ( confirm that the cluster is reachable )
 ```
 ### Set your identity key
@@ -76,7 +92,7 @@ $ solana balance ( should display the balance of 1 testnet solana )
 ```
 $ solana create-vote-account ~/.config/solana/vote.json ~/.config/solana/id.json
 ```
-### Tune the unix kernel to support Solana.  Many times the script fails, so we recommend using the manual steps
+### Tune your unix kernel
 https://docs.solana.com/running-validator/validator-start#system-tuning
 
 ### Startup your validator

@@ -1,5 +1,5 @@
 # SolanaValidator-OnePage Guide 
-Solana documentation and its links can sometimes be confusing and leading you down a complex path. This guide will attempt to focus on the minimum instructions necessary to get your node up and running. 
+This is just one way of setting up the solana validator. Please follow the guidance in the official solana documentation.  
 
 - Unlike many other blockchain networks, Solana needs a deeper understanding of systems and software.  
 - Its best that you have some background in Unix Sytems Administration to be successful in this edeavour
@@ -58,12 +58,11 @@ $ sudo ufw allow 8899/tcp
 ```
 
 ### Generate your keys
-you need atleast 2 keys to run a solana instance.  Identification Key,  Voting Key, Staking Key<br/>
+you need atleast 2 keys to run a solana instance.  Identification Key & Voting Key<br/>
 **Its important that you save all the key mnemonics in an offline system.. Preferably write them on a piece of paper"**
 ```
 $ solana-keygen new -o ~/.config/solana/id.json  #( this is your identification key )
 $ solana-keygen new -o ~/.config/solana/vote.json  #( this is your voting key )
-$ solana-keygen new -o ~/.config/solana/stake.json  #( this is your staking key )
 ```
 
 ### Configure your preferred cluster
@@ -92,7 +91,8 @@ https://docs.solana.com/running-validator/validator-start#system-tuning
 $ mkdir ~solana/bin #(Create a directory to hold your scripts )
 ```
 Create a script called solana-start.sh in the above directory.  Use a text editor and place this file in the bin directory.
-Please note that we simplified all directory setups below to be in root disk. Please change the ledger and log directory or soft link it at ~/ledger and ~/log
+Please note that we simplified all directory setups below to be in root disk. 
+Please change the ledger and log directory or soft link it at ~/ledger and ~/log
 ```
 #!/bin/bash
 set -x
@@ -120,8 +120,10 @@ solana-validator \
 - Save the file and ```chmod +x start-solana.sh```
 - Now you are ready to start your validator
 - Lets run the script in an interactive mode  ```$ ./solana-start.sh ```
-- open another terminal and tail your log to see progress ```$ tail -f ~/validator.log```
-- You will see some activity and then a snapshot download followed by a fast moving log
+- open another terminal, ```su - solana``` and tail your log to see progress ```$ tail -f ~/validator.log```
+- You will see a lot of activity
+- come back to the command prompt 
+- ```solana-validator --ledger ~/ledger monitor``` # this command will help you monitor the progress. 
 
 ### Configure your validator to start in the background
 ####Coming soon

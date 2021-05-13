@@ -97,7 +97,34 @@ $ solana create-vote-account ~/.config/solana/vote.json ~/.config/solana/id.json
 https://docs.solana.com/running-validator/validator-start#system-tuning
 
 ### Startup your validator
+```
+$ mkdir ~solana/bin #(Create a directory to hold your scripts )
+```
+Create a script called solana-start.sh in the above directory.  Use Vi or bin to capture this command set
+```
+#!/bin/bash
+set -x
+source /home/solana/.profile
+export SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea"
+solana config set --url https://testnet.solana.com
 
+solana-validator \
+    --identity ~/.config/solana/id.json \
+    --vote-account ~/.config/solana/vote.json \
+    --trusted-validator 7XSY3MrYnK8vq693Rju17bbPkCN3Z7KvvfvJx4kdrsSY \
+    --trusted-validator Ft5fbkqNa76vnsjYNwjDZUXoTWpP7VYm3mtsaQckQADN \
+    --trusted-validator 9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv \
+    --no-untrusted-rpc \
+    --ledger ~/ledger \
+    --log ~/log/validator.log \
+    --rpc-port 8899 \
+    --private-rpc \
+    --dynamic-port-range 8001-8012 \
+    --entrypoint testnet.solana.com:8001 \
+    --expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY \
+    --wal-recovery-mode skip_any_corrupted_record \
+    --limit-ledger-size 350000000
+```
 
 ### Configure your validator to start in the background
 

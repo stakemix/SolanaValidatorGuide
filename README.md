@@ -124,7 +124,7 @@ solana-validator \
     --wal-recovery-mode skip_any_corrupted_record \
     --limit-ledger-size 350000000
 ```
-- Save the file and ```chmod +x start-solana.sh```
+- Save the file and ```chmod +x solana-start.sh```
 - Now you are ready to start your validator
 - Lets run the script in an interactive mode  ```$ ./solana-start.sh ```
 - open another terminal, ```su - solana``` and tail your log to see progress ```$ tail -f ~/validator.log```

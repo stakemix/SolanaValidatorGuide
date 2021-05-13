@@ -100,7 +100,8 @@ https://docs.solana.com/running-validator/validator-start#system-tuning
 ```
 $ mkdir ~solana/bin #(Create a directory to hold your scripts )
 ```
-Create a script called solana-start.sh in the above directory.  Use a text editor and place this file in the bin directory. 
+Create a script called solana-start.sh in the above directory.  Use a text editor and place this file in the bin directory.
+Please note that we simplified all directory setups below to be in root disk. Please change the ledger and log directory or soft link it at ~/ledger and ~/log
 ```
 #!/bin/bash
 set -x
@@ -116,6 +117,7 @@ solana-validator \
     --trusted-validator 9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv \
     --no-untrusted-rpc \
     --ledger ~/ledger \
+    --log ~/validator.log
     --rpc-port 8899 \
     --private-rpc \
     --dynamic-port-range 8001-8012 \
@@ -126,7 +128,9 @@ solana-validator \
 ```
 - Save the file and ```chmod +x start-solana.sh```
 - Now you are ready to start your validator
-- run 
+- Lets run the script in an interactive mode  ```$ ./solana-start.sh ```
+- open another terminal and tail your log to see progress ```$ tail -f ~/validator.log```
+- You will see some activity and then a snapshot download followed by a fast moving log
 
 ### Configure your validator to start in the background
 ####Coming soon

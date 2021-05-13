@@ -116,7 +116,7 @@ solana-validator \
     --trusted-validator 9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv \
     --no-untrusted-rpc \
     --ledger ~/ledger \
-    --log ~/validator.log \
+    --log ~/log/validator.log \
     --rpc-port 8899 \
     --private-rpc \
     --dynamic-port-range 8001-8012 \
@@ -163,7 +163,20 @@ $ sudo systemctl enable solana # enables the service from the file we saved abov
 $ sudo systemctl start solana  # starts validator,  use stop if you want to stop your validator
 ```
 
-### Scripts and Aliases to ease the management of your validator
+### Optional : Scripts and Aliases to ease the management of your validator
+I am a lazy systems guy so I use a lot of aliases to ease management.  Here are a few you can add to your .bashrc_aliases or .profile to make them work
+```
+alias soldisable='sudo systemctl disable --now solana' # disable solana autostart
+alias solenable='sudo systemctl enable --now solana' # enable solana autostart
+alias solstart='sudo systemctl start --now solana' #start solana
+alias solstop='sudo systemctl stop --now solana' #stop solana ( waiting for exit to work better )
+
+alias sollog='tail -f ~/log/validator.log' #tail my solana log
+alias solmon='solana-validator --ledger ~/ledger monitor' #monitor solana-validator
+alias solstake='solana stakes ~/.config/solana/vote.json' #check my stakes
+alias solvote='solana vote-account ~/.config/solana/vote.json' #check my vote account & credits
+alias syslog='sudo tail -f /var/log/syslog' #tail syslog
+```
 ####Coming soon
 - Other Useful Resources
   - Solana Validator FAQ

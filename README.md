@@ -14,6 +14,13 @@ To get started on the testnet, you will need the following
 - 64 to 128 GB Ram ( Recommend minimum of 256 GB for Mainnet )
 - High IO SSD Disks / NVME Disks ( NVME may not sustain for too long due to the intensity of writes ) 
 
+## Recommended Unix commands to Learn
+Here are a few unix commands and tools you should be comfortable with 
+- su 
+- sudo 
+- using a vi or nano editor
+- 
+
 ## Lets harden your server first
 The first thing to do when you receive your virtual machine or server is to harden the server to cover the basics. While server hardening is a much broader topic, we recommend atleast the following steps to ensure that your server is protected from unnecessary intrusions.
 ###### Upgrade all your software and ensure you have UFW ( firewall ) installed
@@ -148,6 +155,8 @@ ExecStart=/home/solana/bin/solana-start.sh
 [Install]
 WantedBy=multi-user.target
 ``` 
+After you save this file, you should now enable the service and start solana using systemctl file.  
+```
 $ su - solana
 $ sudo systemctl enable solana # enables the service from the file we saved above
 $ sudo systemctl start solana  # starts validator,  use stop if you want to stop your validator

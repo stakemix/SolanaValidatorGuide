@@ -116,7 +116,7 @@ solana-validator \
     --trusted-validator 9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv \
     --no-untrusted-rpc \
     --ledger ~/ledger \
-    --log ~/validator.log
+    --log ~/validator.log \
     --rpc-port 8899 \
     --private-rpc \
     --dynamic-port-range 8001-8012 \

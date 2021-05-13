@@ -100,7 +100,7 @@ https://docs.solana.com/running-validator/validator-start#system-tuning
 ```
 $ mkdir ~solana/bin #(Create a directory to hold your scripts )
 ```
-Create a script called solana-start.sh in the above directory.  Use Vi or bin to capture this command set
+Create a script called solana-start.sh in the above directory.  Use a text editor and place this file in the bin directory. 
 ```
 #!/bin/bash
 set -x
@@ -116,7 +116,6 @@ solana-validator \
     --trusted-validator 9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv \
     --no-untrusted-rpc \
     --ledger ~/ledger \
-    --log ~/log/validator.log \
     --rpc-port 8899 \
     --private-rpc \
     --dynamic-port-range 8001-8012 \
@@ -125,6 +124,10 @@ solana-validator \
     --wal-recovery-mode skip_any_corrupted_record \
     --limit-ledger-size 350000000
 ```
+- Save the file and ```chmod +x start-solana.sh```
+- Now you are ready to start your validator
+- run 
+
 ### Configure your validator to start in the background
 ####Coming soon
 ### Scripts and Aliases to ease the management of your validator

@@ -12,16 +12,7 @@ To get started on the testnet, you will need the following
 - A hosted or cloud server ( Home hosted servers tend to lag in catchup due to network latency )
 - with 16+ CPU cores 
 - 64 to 128 GB Ram ( Recommend minimum of 256 GB for Mainnet )
-- High IO SSD Disks / NVME Disks ( NVME may not sustain for too long due to the intensity of writes )
-
-## Recommended Disk Layout
-
-| mount  | size | DiskRaid  | Comments  |
-|---|---|---|---|
-| /  | 128GB  | 1  | OS Disk, Better to keep it mirrored  |
-| /log | 32GB  | 0  | Logs Disk, avoid mirroring to reduce io waits  |
-| /ledger  |  640GB  | 0  | Ledger Disk, Do not mirror unless you can handle io waits  |
-| /snapshots | 128GB | 1 | Snapshots Disk - Needed for rebuilding ledger in case of a loss 
+- High IO SSD Disks / NVME Disks ( NVME may not sustain for too long due to the intensity of writes ) 
 
 ## Lets harden your server first
 The first thing to do when you receive your virtual machine or server is to harden the server atleast to cover the basics. While server hardening is a much broader topic, we recommend atleast the following steps to ensure that your server is protected from unnecessary intrusions.

@@ -1,5 +1,5 @@
 # SolanaValidator-OnePage Guide 
-Solana documentation and its links can sometimes be confusing and leading you down a confusing path.  So we provided this simplified 1 page guide to help people that need help. 
+Solana documentation and its links can sometimes be confusing and leading you down a complex path. This guide will attempt to focus on the minimum instructions necessary to get your node up and running. 
 
 - Unlike many other blockchain networks, Solana needs a deeper understanding of systems and software.  
 - Its best that you have some background in Unix Sytems Administration to be successful in this edeavour
@@ -15,7 +15,7 @@ To get started on the testnet, you will need the following
 - High IO SSD Disks / NVME Disks ( NVME may not sustain for too long due to the intensity of writes ) 
 
 ## Lets harden your server first
-The first thing to do when you receive your virtual machine or server is to harden the server atleast to cover the basics. While server hardening is a much broader topic, we recommend atleast the following steps to ensure that your server is protected from unnecessary intrusions.
+The first thing to do when you receive your virtual machine or server is to harden the server to cover the basics. While server hardening is a much broader topic, we recommend atleast the following steps to ensure that your server is protected from unnecessary intrusions.
 ###### Upgrade all your software and ensure you have UFW ( firewall ) installed
 ```
 $ sudo apt update

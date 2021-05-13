@@ -125,11 +125,10 @@ solana-validator \
     --wal-recovery-mode skip_any_corrupted_record \
     --limit-ledger-size 350000000
 ```
-
 ### Configure your validator to start in the background
-
+####Coming soon
 ### Scripts and Aliases to ease the management of your validator
-
+####Coming soon
 - Other Useful Resources
   - Solana Validator FAQ
   - Solana Validator Docs

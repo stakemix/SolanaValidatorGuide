@@ -76,7 +76,7 @@ $ solana transaction-count #( confirm that the cluster is reachable )
 ```
 $ solana config set --keypair ~/.config/solana/id.json #( sets your identity key file for all commands ) 
 $ solana balance #( shows the balance in your identity wallet )
-$ solana aidrop 1 ( adds 1 testnet sol to your wallet )
+$ solana airdrop 1 ( adds 1 testnet sol to your wallet )
 $ solana balance ( should display the balance of 1 testnet solana )
 ```
 ### Create your vote account

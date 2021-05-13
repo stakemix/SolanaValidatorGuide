@@ -10,7 +10,7 @@ Solana documentation and its links can sometimes be confusing and leading you do
 ## Recommended Hardware & Hosting Specs
 To get started on the testnet, you will need the following
 - A hosted or cloud server ( Home hosted servers tend to lag in catchup due to network latency )
-- with 16+ CPU cores 
+- with 16+ threads / vcpus
 - 64 to 128 GB Ram ( Recommend minimum of 256 GB for Mainnet )
 - High IO SSD Disks / NVME Disks ( NVME may not sustain for too long due to the intensity of writes ) 
 

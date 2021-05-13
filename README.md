@@ -76,7 +76,7 @@ $ solana-keygen new -o ~/.config/solana/stake.json  #( this is your staking key 
 ```
 
 ### Configure your preferred cluster
-Solana has 3 clusters - devnet, testnet and mainnet. We recommend that you use the testnet cluster for your first setup<br/>
+Solana has 3 clusters - devnet, testnet and mainnet. We recommend that you use the devnet or testnet cluster for your first setup<br/>
 ``` 
 $ solana config set --url https://testnet.solana.com 
 $ export SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea" 

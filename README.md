@@ -95,7 +95,7 @@ https://docs.solana.com/running-validator/validator-start#system-tuning
 
 ### Startup your validator
 ```
-$ mkdir ~solana/bin #(Create a directory to hold your scripts )
+$ mkdir /home/solana/bin #(Create a directory to hold your scripts )
 ```
 Create a script called solana-start.sh in the above directory.  Use a text editor and place this file in the bin directory.
 Please note that we simplified all directory setups below to be in root disk. 
@@ -103,6 +103,7 @@ Please change the ledger and log directory or soft link it at ~/ledger and ~/log
 ```
 #!/bin/bash
 set -x
+cd /home/solana
 source /home/solana/.profile
 export SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea"
 solana config set --url https://testnet.solana.com

@@ -45,33 +45,34 @@ $ sudo ufw status
 ### Create a dedicated User
 **DO NOT install solana software as Root. **
 ```
-$ sudo adduser solana ( follow the prompts )
-$ sudo usermod -aG sudo solana ( adds the user to sudo group )
-$ sudo passwd -d solana ( disable password based login for solana user )
+$ sudo adduser solana #( follow the prompts )
+$ sudo usermod -aG sudo solana #( adds the user to sudo group )
+$ sudo passwd -d solana #( disable password based login for solana user )
 ```
 ### Install Solana Software
 ```
+$ su - solana #Login into solana user
 $ sh -c "$(curl -sSfL https://release.solana.com/stable/install)"
-$ exit ( you should be back in ubuntu user )
-$ su - solana
-$ solana --version ( you should see the version of the software you installed )
-$ solana-install --info ( Shows whether you have the lastest version or if you need to upgrade )
-$ solana-install update ( Updates your software to the latest release )
+$ exit #( you should be back in ubuntu user )
+$ su - solana # Login again into solana user 
+$ solana --version #( you should see the version of the software you installed )
+$ solana-install info #( Shows whether you have the lastest version or if you need to upgrade )
+$ solana-install update #( Updates your software to the latest release )
 ```
 ### Open ports on your firewall to allow solana cluster communication
 ```
-$ ufw allow 8001-8012/tcp
-$ ufw allow 8001-8012/udp
-$ ufw allow 8899/tcp
+$ sudo ufw allow 8001:8012/tcp
+$ sudo ufw allow 8001:8012/udp
+$ sudo ufw allow 8899/tcp
 ```
 
 ### Generate your keys
 you need atleast 2 keys to run a solana instance.  Identification Key,  Voting Key, Staking Key<br/>
 **Its important that you save all the key mnemonics in an offline system.. Preferably write them on a piece of paper"**
 ```
-$ solana-keygen new -o ~/.config/solana/id.json  ( this is your identification key )
-$ solana-keygen new -o ~/.config/solana/vote.json  ( this is your voting key )
-$ solana-keygen new -o ~/.config/solana/stake.json  ( this is your staking key )
+$ solana-keygen new -o ~/.config/solana/id.json  #( this is your identification key )
+$ solana-keygen new -o ~/.config/solana/vote.json  #( this is your voting key )
+$ solana-keygen new -o ~/.config/solana/stake.json  #( this is your staking key )
 ```
 
 ### Configure your preferred cluster
@@ -79,12 +80,12 @@ Solana has 3 clusters - devnet, testnet and mainnet. We recommend that you use t
 ``` 
 $ solana config set --url https://testnet.solana.com 
 $ export SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea" 
-$ solana transaction-count ( confirm that the cluster is reachable )
+$ solana transaction-count #( confirm that the cluster is reachable )
 ```
 ### Set your identity key
 ```
-$ solana config set --keypair ~/.config/solana/id.json ( sets your identity key file for all commands ) 
-$ solana balance ( shows the balance in your identity wallet )
+$ solana config set --keypair ~/.config/solana/id.json #( sets your identity key file for all commands ) 
+$ solana balance #( shows the balance in your identity wallet )
 $ solana aidrop 1 ( adds 1 testnet sol to your wallet )
 $ solana balance ( should display the balance of 1 testnet solana )
 ```

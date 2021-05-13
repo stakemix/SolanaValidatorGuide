@@ -1,5 +1,5 @@
 # SolanaValidator-OnePage Guide 
-This is just one way of setting up the solana validator. Please follow the guidance in the official solana documentation.  
+This is just one way of setting up the solana validator. Please follow official solana documentation for the latest instructions. 
 
 - Unlike many other blockchain networks, Solana needs a deeper understanding of systems and software.  
 - Its best that you have some background in Unix Sytems Administration to be successful in this edeavour

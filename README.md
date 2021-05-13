@@ -126,7 +126,33 @@ solana-validator \
 - ```solana-validator --ledger ~/ledger monitor``` # this command will help you monitor the progress. 
 
 ### Configure your validator to start in the background
-####Coming soon
+####Coming soon ( WIP )
+Copy this into a file name /etc/systemd/system/solana.service
+```
+[Unit]
+Description=Solana Validator
+After=network.target
+Wants=solana-sys-tuner.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=10
+User=solana
+LimitNOFILE=700000
+LogRateLimitIntervalSec=0
+Environment="PATH=/bin:/usr/bin:/home/solana/.local/share/solana/install/active_release/bin"
+ExecStart=/home/solana/bin/solana-start.sh
+
+[Install]
+WantedBy=multi-user.target
+``` 
+$ su - solana
+$ sudo systemctl enable solana # enables the service from the file we saved above
+$ sudo systemctl start solana  # starts validator,  use stop if you want to stop your validator
+```
+
 ### Scripts and Aliases to ease the management of your validator
 ####Coming soon
 - Other Useful Resources

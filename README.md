@@ -50,7 +50,7 @@ $ sudo passwd -d solana #( disable password based login for solana user )
 ### Install Solana Software
 ```
 $ su - solana #Login into solana user
-$ sh -c "$(curl -sSfL https://release.solana.com/stable/install)"
+$ sh -c "$(curl -sSfL https://release.solana.com/beta/install)"
 $ exit #( you should be back in ubuntu user )
 $ su - solana # Login again into solana user 
 $ solana --version #( you should see the version of the software you installed )

@@ -97,11 +97,12 @@ https://docs.solana.com/running-validator/validator-start#system-tuning
 ```
 $ mkdir /home/solana/bin #(Create a directory to hold your scripts )
 ```
-Create a script called solana-start.sh in the above directory.  Use a text editor and place this file in the bin directory.
+Create a script called solana-start.sh in /home/solana/bin.  Use a text editor and place this file in the bin directory.
 Please note that we simplified all directory setups below to be in root disk. 
 Please change the ledger and log directory or soft link it at ~/ledger and ~/log
 ```
 #!/bin/bash
+# Solana-start.sh for starting the solana validator
 set -x
 cd /home/solana
 source /home/solana/.profile
@@ -125,33 +126,49 @@ solana-validator \
     --wal-recovery-mode skip_any_corrupted_record \
     --limit-ledger-size 350000000
 ```
-- Save the file and make your script executable ```sudo chmod +x solana-start.sh```
+Create a script called solana-start.sh in /home/solana/bin
+```
+#!/bin/bash
+set -x
+source /home/solana/.profile
+cd /home/solana
+export SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea"
+solana config set --url https://testnet.solana.com
+solana-validator --ledger ~/ledger exit --min-idle-time 15
+```
+
+- Save the file and make your scripts executable 
+- ```
+- sudo chmod +x /home/solana/solana-start.sh
+- sudo chmod +x /home/solana/solana-stop.sh
+- ```
 - Now you are ready to start your validator
-- Lets run the script in an interactive mode  ```$ ./solana-start.sh ```
+- Lets run the script in an interactive mode 
+-  ```$ ./solana-start.sh ```
 - open another terminal, ```su - solana``` and tail your log to see progress ```$ tail -f ~/validator.log```
 - You will see a lot of activity
-- come back to the command prompt 
+- ctrl+c and come back to the command prompt 
 - ```solana-validator --ledger ~/ledger monitor``` # this command will help you monitor the progress. 
 
-### Configure your validator to start in the background
-####Coming soon ( WIP )
-Copy this into a file name /etc/systemd/system/solana.service
+### Configure your validator as a system service
+Copy this to a file name /etc/systemd/system/solana.service ( you will need sudo or root to save here )
 ```
 [Unit]
 Description=Solana Validator
 After=network.target
-Wants=solana-sys-tuner.service
-StartLimitIntervalSec=0
+StartLimitIntervalSec=180
+StartLimitBurst=3
 
 [Service]
 Type=simple
 Restart=always
-RestartSec=10
+RestartSec=30
 User=solana
 LimitNOFILE=700000
 LogRateLimitIntervalSec=0
 Environment="PATH=/bin:/usr/bin:/home/solana/.local/share/solana/install/active_release/bin"
 ExecStart=/home/solana/bin/solana-start.sh
+ExecStop=/home/solana/bin/solana-stop.sh
 
 [Install]
 WantedBy=multi-user.target
@@ -164,7 +181,7 @@ $ sudo systemctl start solana  # starts validator,  use stop if you want to stop
 ```
 
 ### Optional : Scripts and Aliases to ease the management of your validator
-I am a lazy systems guy so I use a lot of aliases to ease management.  Here are a few you can add to your .bashrc_aliases or .profile to make them work
+I am a lazy systems admin so I use a lot of aliases to ease management.  Here are a few you can add to your .bashrc_aliases or .profile to make them work
 ```
 alias soldisable='sudo systemctl disable --now solana' # disable solana autostart
 alias solenable='sudo systemctl enable --now solana' # enable solana autostart

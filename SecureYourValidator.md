@@ -1,5 +1,5 @@
-### How to Harden your Solana Validator
-Security is an important aspect of running a unix based validator.  We recommend that all validators use the following guidelines in locking down their servers.
+## How to secure your Solana Validator
+Security is an important responsibility of a Validator Owner.   We recommend that all validators take the basic steps to lock down their servers to prevent attacks on the network and to avoid loss of keys etc.
 
 #### Update your software
 #### Use a Firewall

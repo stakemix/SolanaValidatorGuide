@@ -1,4 +1,3 @@
-This site is still under constructions. 
 
 ### [Solana Validator Install Guide ](Install.md)
 ### [Solana Validator Security Guide ](SecureYourValidator.md)

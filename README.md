@@ -21,7 +21,7 @@ Learn about Linux and a few key commands.  You will find enough tutorials on goo
 - vi or nano editor
 
 ## Lets harden your server
-( these are the minimal steps and we hope to publish a detailed security guide some day )
+( these are the minimal steps and we hope to publish a detailed [security guide](SecureYourValidator.md) soon.)
 ###### Upgrade all your software and install UFW ( firewall )
 ```
 $ sudo apt update

@@ -198,4 +198,4 @@ alias syslog='sudo tail -f /var/log/syslog' #tail syslog
   - Solana Validator FAQ
   - Solana Validator Docs
 
-Contributions are always welcome! Please take a look at the [contribution guidelines](CONTRIBUTING.md) first.
+Content contributions are always welcome! Please take a look at the [contribution guidelines](CONTRIBUTING.md) first.

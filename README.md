@@ -1,29 +1,28 @@
 # SolanaValidator-OnePage Guide 
-This is just one way of setting up the solana validator. Please follow official solana documentation for the latest instructions. 
+This is just one way of setting up the solana validator. Please refer to solana documentation for latest instructions
+- Unlike many other blockchain networks, Solana needs beefier hardware
+- Good to have a solid good background in unix systems and software management
+- Share edits / corrections / suggestions in Github or with authors ( support@stakemix.com )
 
-- Unlike many other blockchain networks, Solana needs a deeper understanding of systems and software.  
-- Its best that you have some background in Unix Sytems Administration to be successful in this edeavour
-- Share edits / corrections / suggestions in Github or with authors on Discord ( DfinityUB#1211 or StakeMixAB#9519 )
-
-### Guide is to run a Solana validator on Ubuntu 20.04.  Other variants of unix may need command translation.
+### Guide was used to build a Solana validator on Ubuntu 20.04.  Other  unix variants may need command translation.
 
 ## Recommended Hardware & Hosting Specs
 To get started on the testnet, you will need the following
-- A hosted or cloud server ( Home hosted servers tend to lag in catchup due to network latency )
-- with 16+ threads / vcpus
-- 64 to 128 GB Ram ( Recommend minimum of 256 GB for Mainnet )
-- High IO SSD Disks / NVME Disks ( NVME may not sustain for too long due to the intensity of writes ) 
+- A hosted or cloud server ( typical home servers tend to lag due to network latency, YMMV )
+- with 8 cores & 16+ threads or vcpus ( 16 cores, 32 threads for Mainnet )
+- 64 to 128 GB Ram ( 256 for Mainnet )
+- High IO SSD Disks / NVME Disks ( NVMEs may fail due to excessive writes, so be ready to replace ) 
+- Good network capacity : 300mbps up and 300mbps down for testnet
 
 ## Recommended Unix commands to Learn
-Here are a few unix commands and tools you should be comfortable with 
-- su 
-- sudo 
-- using a vi or nano editor
-- 
+Learn about Linux and a few key commands.  You will find enough tutorials on google. 
+- introduction to linux
+- su, sudo, mkdir, top, tail, export, echo
+- vi or nano editor
 
-## Lets harden your server first
-The first thing to do when you receive your virtual machine or server is to harden the server to cover the basics. While server hardening is a much broader topic, we recommend atleast the following steps to ensure that your server is protected from unnecessary intrusions.
-###### Upgrade all your software and ensure you have UFW ( firewall ) installed
+## Lets harden your server
+( these are the minimal steps and we hope to publish a detailed security guide some day )
+###### Upgrade all your software and install UFW ( firewall )
 ```
 $ sudo apt update
 $ sudo apt upgrade
@@ -126,7 +125,7 @@ solana-validator \
     --wal-recovery-mode skip_any_corrupted_record \
     --limit-ledger-size 350000000
 ```
-Create a script called solana-start.sh in /home/solana/bin
+Create a script named solana-start.sh in /home/solana/bin using vi or nano
 ```
 #!/bin/bash
 set -x
@@ -136,12 +135,11 @@ export SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=tds,u=test
 solana config set --url https://testnet.solana.com
 solana-validator --ledger ~/ledger exit --min-idle-time 15
 ```
-
 - Save the file and make your scripts executable 
-- ```
+ ```
 - sudo chmod +x /home/solana/solana-start.sh
 - sudo chmod +x /home/solana/solana-stop.sh
-- ```
+```
 - Now you are ready to start your validator
 - Lets run the script in an interactive mode 
 -  ```$ ./solana-start.sh ```

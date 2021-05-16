@@ -1,5 +1,5 @@
-# SolanaValidator-OnePage Guide 
-This is just one way of setting up the solana validator. Please refer to solana documentation for latest instructions
+# SolanaValidator-OnePage Installation Guide 
+This is one way of setting up the solana validator. Please refer to solana documentation for latest instructions
 - Unlike many other blockchain networks, Solana needs beefier hardware
 - Good to have a solid good background in unix systems and software management
 - Share edits / corrections / suggestions in Github or with authors ( support@stakemix.com )

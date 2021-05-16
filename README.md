@@ -101,7 +101,7 @@ Please note that we simplified all directory setups below to be in root disk.
 Please change the ledger and log directory or soft link it at ~/ledger and ~/log
 ```
 #!/bin/bash
-# Solana-start.sh for starting the solana validator
+# solana-start.sh for starting the solana validator
 set -x
 cd /home/solana
 source /home/solana/.profile
@@ -128,14 +128,15 @@ solana-validator \
 Create a script named solana-start.sh in /home/solana/bin using vi or nano
 ```
 #!/bin/bash
-set -x
+#solana-stop.sh for stopping the validator using exit command
+#set -x
 source /home/solana/.profile
 cd /home/solana
 export SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea"
 solana config set --url https://testnet.solana.com
 solana-validator --ledger ~/ledger exit --min-idle-time 15
 ```
-- Save the file and make your scripts executable 
+- Save the file and add x bit
  ```
 - sudo chmod +x /home/solana/solana-start.sh
 - sudo chmod +x /home/solana/solana-stop.sh

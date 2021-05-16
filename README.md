@@ -65,7 +65,7 @@ $ sudo ufw allow 8899/tcp
 
 ### Generate your keys
 you need atleast 2 keys to run a solana instance.  Identification Key & Voting Key<br/>
-**Its important that you save all the key mnemonics in an offline system.. Preferably write them on a piece of paper"**
+**Its important that you save all the key mnemonics in an offline system.. ( Hardware wallet, Pen/Paper..Dont loose these )"**
 ```
 $ solana-keygen new -o ~/.config/solana/id.json  #( this is your identification key )
 $ solana-keygen new -o ~/.config/solana/vote.json  #( this is your voting key )

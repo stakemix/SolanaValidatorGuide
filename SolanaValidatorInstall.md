@@ -68,7 +68,7 @@ $ solana-keygen new -o ~/.config/solana/vote.json  #( this is your voting key )
 ### Configure your preferred cluster
 Solana has 3 clusters - devnet, testnet and mainnet. We recommend that you use the devnet or testnet cluster for your first setup<br/>
 ``` 
-$ solana config set --url https://testnet.solana.com 
+$ solana config set --url https://api.testnet.solana.com 
 $ export SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea" 
 $ solana transaction-count #( confirm that the cluster is reachable )
 ```
@@ -76,7 +76,7 @@ $ solana transaction-count #( confirm that the cluster is reachable )
 ```
 $ solana config set --keypair ~/.config/solana/id.json #( sets your identity key file for all commands ) 
 $ solana balance #( shows the balance in your identity wallet )
-$ solana airdrop 1 ( adds 1 testnet sol to your wallet )
+$ solana airdrop 10 ( adds 10 testnet sol to your wallet )
 $ solana balance ( should display the balance of 1 testnet solana )
 ```
 ### Create your vote account
@@ -100,7 +100,7 @@ set -x
 cd /home/solana
 source /home/solana/.profile
 export SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea"
-solana config set --url https://testnet.solana.com
+solana config set --url https://api.testnet.solana.com
 
 solana-validator \
     --identity ~/.config/solana/id.json \
@@ -114,7 +114,7 @@ solana-validator \
     --rpc-port 8899 \
     --private-rpc \
     --dynamic-port-range 8001-8012 \
-    --entrypoint testnet.solana.com:8001 \
+    --entrypoint api.testnet.solana.com:8001 \
     --expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY \
     --wal-recovery-mode skip_any_corrupted_record \
     --limit-ledger-size 100000000
@@ -127,7 +127,7 @@ Create a script named solana-stop.sh in /home/solana/bin using vi or nano
 source /home/solana/.profile
 cd /home/solana
 export SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea"
-solana config set --url https://testnet.solana.com
+solana config set --url https://api.testnet.solana.com
 solana-validator --ledger ~/ledger exit --min-idle-time 15
 ```
 - Save the file and add x bit

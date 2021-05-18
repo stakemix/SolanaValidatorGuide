@@ -117,7 +117,7 @@ solana-validator \
     --entrypoint testnet.solana.com:8001 \
     --expected-genesis-hash 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY \
     --wal-recovery-mode skip_any_corrupted_record \
-    --limit-ledger-size 350000000
+    --limit-ledger-size 100000000
 ```
 Create a script named solana-stop.sh in /home/solana/bin using vi or nano
 ```

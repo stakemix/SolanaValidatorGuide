@@ -1,5 +1,5 @@
 # SolanaValidator-OnePage Installation Guide 
-### Do not install your software as root. Its a security risk
+### Do not install your software in root. Its a security risk
 This is one way of setting up the solana validator. Please refer to solana documentation for latest instructions
 - Unlike many other blockchain networks, Solana needs beefier hardware
 - Good to have a solid good background in unix systems and software management
@@ -7,22 +7,15 @@ This is one way of setting up the solana validator. Please refer to solana docum
 
 ### Guide helps you to build Solana validator on Ubuntu 20.04.  Other  unix variants may need command translation.
 
-## Recommended Hardware & Hosting Specs
-To get started on the testnet, you will need the following
-- A hosted or cloud server ( typical home servers tend to lag due to network latency, YMMV )
-- with 8 cores & 16+ threads or vcpus ( 16 cores, 32 threads for Mainnet )
-- 64 to 128 GB Ram ( 256 for Mainnet )
-- High IO SSD Disks / NVME Disks ( NVMEs may fail due to excessive writes, so be ready to replace ) 
-- Good network capacity : 300mbps up and 300mbps down for testnet
-
-## Recommended Unix commands to Learn
+## Hope you are familiar with basic Unix administration & commands
 Learn about Linux and a few key commands.  You will find enough tutorials on google. 
 - introduction to linux
 - su, sudo, mkdir, top, tail, export, echo
 - vi or nano editor
 
-## Lets harden your server
-( these are the minimal steps and we hope to publish a detailed [security guide](SecureYourValidator.md) soon.)
+## Lets first update your server & Install a firewall
+( More detailed instructions for securing your server are in the [security guide](SecureYourValidator.md) soon.)
+
 ###### Upgrade all your software and install UFW ( firewall )
 ```
 $ sudo apt update

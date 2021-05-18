@@ -1,10 +1,11 @@
 # SolanaValidator-OnePage Installation Guide 
+### Do not install your software as root. Its a security risk
 This is one way of setting up the solana validator. Please refer to solana documentation for latest instructions
 - Unlike many other blockchain networks, Solana needs beefier hardware
 - Good to have a solid good background in unix systems and software management
 - Share edits / corrections / suggestions in Github or with authors ( support@stakemix.com )
 
-### Guide was used to build a Solana validator on Ubuntu 20.04.  Other  unix variants may need command translation.
+### Guide helps you to build Solana validator on Ubuntu 20.04.  Other  unix variants may need command translation.
 
 ## Recommended Hardware & Hosting Specs
 To get started on the testnet, you will need the following

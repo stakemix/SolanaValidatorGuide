@@ -44,7 +44,6 @@ $ sudo ufw status
 ```
 $ sudo adduser solana #( follow the prompts )
 $ sudo usermod -aG sudo solana #( adds the user to sudo group )
-$ sudo passwd -d solana #( disable password based login for solana user )
 ```
 ### Install Solana Software
 ```

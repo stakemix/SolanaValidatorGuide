@@ -124,7 +124,7 @@ solana-validator \
     --wal-recovery-mode skip_any_corrupted_record \
     --limit-ledger-size 350000000
 ```
-Create a script named solana-start.sh in /home/solana/bin using vi or nano
+Create a script named solana-stop.sh in /home/solana/bin using vi or nano
 ```
 #!/bin/bash
 #solana-stop.sh for stopping the validator using exit command

@@ -12,6 +12,7 @@ Learn about Linux and a few key commands.  You will find enough tutorials on goo
 - introduction to linux
 - su, sudo, mkdir, top, tail, export, echo
 - vi or nano editor
+- Do not use root to login to your server. Please setup an admin user. In ubuntu images you will find ubuntu user already enabled. 
 
 ## Lets first update your server & Install a firewall
 ( More detailed instructions for securing your server are in the [security guide](SecureYourValidator.md) soon.)

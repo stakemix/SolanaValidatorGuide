@@ -21,7 +21,7 @@ $ solana-foundation-delegation-program --version
 
 ## Now create a key for mainnet
 ```
-$ solana-keygen new -o /home/solana/.config/mainnet-id.json
+$ solana-keygen new -o /home/solana/.config/solana/mainnet-id.json
 ```
 - Save this key, mnemonic and everything in a different computer. 
 - Very Important to have an offline copy
@@ -36,8 +36,8 @@ $ solana-keygen new -o /home/solana/.config/mainnet-id.json
 $ solana -um balance <mainnetpubkey>  
 ```
 now get the paths to your keys and keep them ready
-- "testnetkey" - /home/solana/config/id.json
-- "mainnetkey" - /home/solana/config/mainnnet-id.json
+- "testnetkey" - /home/solana/.config/solana/id.json
+- "mainnetkey" - /home/solana/config/solana/mainnnet-id.json
 
 ## run the application command
 ```

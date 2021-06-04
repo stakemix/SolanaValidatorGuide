@@ -53,3 +53,7 @@ $ solana-foundation-delegation-program status <mainnetkey>
 ```
   
 ## You are done
+## This doesnt guarantee foundation delegation
+## Your validators have to still meet the minimum performance requirements on both testnet and mainnet
+
+## Enjoy

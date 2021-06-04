@@ -23,7 +23,8 @@ $ solana-foundation-delegation-program --version
 ```
 $ solana-keygen new -o /home/solana/.config/mainnet-id.json
 ```
-- Save this key, mnemonic and everything in a different environment 
+- Save this key, mnemonic and everything in a different computer. 
+- Very Important to have an offline copy
 - Write down the pubkey for use later in the doc "mainnetpubkey"
 - dont go to the next step until you save these files and mnemonic etc.
 

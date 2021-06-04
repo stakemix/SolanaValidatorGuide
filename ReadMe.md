@@ -1,5 +1,6 @@
 ## Solana Guides
 #### [Solana Validator - Install Guide ](SolanaValidatorInstall.md)
+#### [Solana Validator - Apply for Foundation Delegation ](Apply-Foundation-Delegation.md)
 #### [Solana Validator - Security Guide (WIP) ](SecureYourValidator.md)
 #### Solana Validator - Monitoring Guide - Coming Soon
 

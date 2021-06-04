@@ -1,4 +1,5 @@
-## Simplified instructions to Sign upSolana Foundation Delegation 
+## Cheatsheet to Sign up for Solana Foundation New Delegation Program
+- Program Details Here ( https://forums.solana.com/t/evolution-of-the-solana-foundation-delegation-program/1906 )
 #### This involves transferrring real SOL to your keys.. So please be careful and validate the commands yourself.  
 #### No warranties to the commands and steps below
 #### Assumption is that you already have solana running on testnet
@@ -24,10 +25,10 @@ solana-foundation-delegation-program --version
 - Write down the pubkey for use later in the doc <mainnetpubkey>
 - dont go to the next step until you save these files and mnemonic etc.#
 
-##You need some real SOL to get to solana
-- Buy solana at any of your favourite places
-- Transfer 0.25 solana from your favourite wallet or exchange to the <mainnetpubkey>
-- check if the balance hasarrived
+## You need some real SOL to continue with the next steps
+- Buy solana at any of your favourite exchange or wallet
+- Transfer 0.25 solana from your exchange to the <mainnetpubkey>
+- check if the balance has arrived
 ```
 solana -um balance <mainnetpubkey>  
 ```

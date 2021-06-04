@@ -1,8 +1,8 @@
 ## Cheatsheet to Sign up for Solana Foundation New Delegation Program
 - Program Details Here ( https://forums.solana.com/t/evolution-of-the-solana-foundation-delegation-program/1906 )
-#### This involves transferrring real SOL to your keys.. So please be careful and validate the commands yourself.  
-#### No warranties to the commands and steps below
-#### Assumption is that you already have solana running on testnet
+- This involves transferrring real SOL to your keys.. So please be careful and validate the commands yourself.  
+- No warranties to the commands and steps below
+- Assumption is that you already have solana running on testnet
 
 ## Install the libraries necessary to build & run solana-foundation-delegation-program
 ```

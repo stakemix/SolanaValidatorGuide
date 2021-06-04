@@ -52,8 +52,9 @@ $ solana-foundation-delegation-program apply --mainnet <mainnetkey> --testnet <t
 $ solana-foundation-delegation-program status <mainnetkey>
 ```
   
-## You are done
-## This doesnt guarantee foundation delegation
-## Your validators have to still meet the minimum performance requirements on both testnet and mainnet
+## You have applied succesfuly if you get back a pending or approved status
+#### This doesnt guarantee foundation delegation yet
+- You have to be approved first and then
+- Your validators have to still meet the minimum performance requirements on both testnet and mainnet
 
 ## Enjoy

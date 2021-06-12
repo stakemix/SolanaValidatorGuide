@@ -30,7 +30,7 @@ $ solana-keygen new -o /home/solana/.config/solana/mainnet-id.json
 
 ## You need some real SOL to continue with the next steps
 - Buy solana at any of your favourite exchange or wallet
-- Transfer 0.25 solana from your exchange to your "mainnetpubkey"
+- Transfer 0.05 solana from your exchange to your "mainnetpubkey"
 - check if the balance has arrived
 ```
 $ solana -um balance <mainnetpubkey>  
